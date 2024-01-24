@@ -11,8 +11,8 @@ const NumberSelector = () => {
         {arrNumber.map((number, idx) => {
           return (
             <Box
-              key={idx}
-              isselected={number === selectedDice}
+              key={`number-${number}`}
+              $isselected={number === selectedDice ? "true" : "false"}
               onClick={() =>
                 dispatch({ type: "Dice-Selected", payload: number })
               }
@@ -35,9 +35,16 @@ const NumberSelectorContainer = styled.div`
   justify-content: space-between;
   align-items: end;
 
+  @media screen and (max-width: 600px) {
+    align-items: center;
+  }
+
   .flex {
     display: flex;
     gap: 24px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
   }
   p {
     font-size: 24px;
@@ -53,6 +60,16 @@ const Box = styled.div`
   place-items: center;
   font-size: 24px;
   font-weight: 700;
-  background-color: ${(props) => (props.isselected ? "black" : "white")};
-  color: ${(props) => (!props.isselected ? "black" : "white")};
+  background-color: ${(props) => (props.$isselected==="true" ? "black" : "white")};
+  color: ${(props) => (props.$isselected==="false" ? "black" : "white")};
+
+  @media screen and (max-width: 600px) {
+    height: 60px;
+    width: 60px;
+  }
+
+  @media screen and (max-width: 520px) {
+    height: 45px;
+    width: 45px;
+  }
 `;

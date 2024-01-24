@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import { useDiceContext } from "../Context/DiceContext";
 
 const Score = () => {
-    const { state } = useDiceContext();
-    const { totalScore } = state;
+  const { state } = useDiceContext();
+  const { totalScore } = state;
   return (
     <ScoreContainer>
       <h1>{totalScore}</h1>
@@ -25,5 +25,15 @@ const ScoreContainer = styled.div`
   p {
     font-size: 24px;
     font-weight: 500;
+  }
+
+  @media screen and (max-width: 600px) {
+    h1 {
+      font-size: 64px;
+      line-height: 64px;
+    }
+    p {
+      font-size: 18px;
+    }
   }
 `;

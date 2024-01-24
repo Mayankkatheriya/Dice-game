@@ -5,7 +5,7 @@ import styled from "styled-components";
 import RoleDice from "./RoleDice";
 import { useDiceContext } from "../Context/DiceContext";
 import { Button } from "../Styled/Button";
-import Dialog from "./Dialog"
+import Dialog from "./Dialog";
 
 const GamePlay = () => {
   const { state, dispatch } = useDiceContext();
@@ -27,9 +27,7 @@ const GamePlay = () => {
         </Button>
       </div>
       {/* Rules Dialog */}
-      {isRulesDialogOpen && (
-        <Dialog />
-      )}
+      {isRulesDialogOpen && <Dialog />}
     </MainContainer>
   );
 };
@@ -41,6 +39,11 @@ const MainContainer = styled.main`
   width: 100%;
   height: 100vh;
   position: relative;
+
+  @media screen and (max-width: 768px) {
+    padding: 2rem 1rem 0;
+  }
+
   .error {
     color: red;
     text-align: right;
@@ -48,6 +51,7 @@ const MainContainer = styled.main`
     top: 2rem;
     right: 2rem;
   }
+
   .top_section {
     display: flex;
     justify-content: space-between;
@@ -55,6 +59,15 @@ const MainContainer = styled.main`
     flex-wrap: wrap;
     gap: 1rem;
   }
+
+  @media screen and (max-width: 768px) {
+    .top_section {
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+  }
+
   .btns {
     margin-top: 40px;
     gap: 10px;
@@ -63,5 +76,11 @@ const MainContainer = styled.main`
     align-items: center;
     justify-content: center;
     gap: 10px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .btns {
+      margin-top: 20px;
+    }
   }
 `;
