@@ -1,38 +1,11 @@
 import React from "react";
+import styled from "styled-components";
 import Score from "./Score";
 import NumberSelector from "./NumberSelector";
-import styled from "styled-components";
 import RoleDice from "./RoleDice";
 import { useDiceContext } from "../Context/DiceContext";
 import { Button } from "../Styled/Button";
 import Dialog from "./Dialog";
-
-const GamePlay = () => {
-  const { state, dispatch } = useDiceContext();
-  const { error, isRulesDialogOpen } = state;
-  return (
-    <MainContainer>
-      <p className="error">{error}</p>
-      <div className="top_section">
-        <Score />
-        <NumberSelector />
-      </div>
-      <RoleDice />
-      <div className="btns">
-        <Button onClick={() => dispatch({ type: "resetScore" })}>
-          Reset Score
-        </Button>
-        <Button onClick={() => dispatch({ type: "toggleRulesDialog" })}>
-          Show Rules
-        </Button>
-      </div>
-      {/* Rules Dialog */}
-      {isRulesDialogOpen && <Dialog />}
-    </MainContainer>
-  );
-};
-
-export default GamePlay;
 
 const MainContainer = styled.main`
   padding: 3rem 2rem 0;
@@ -84,3 +57,31 @@ const MainContainer = styled.main`
     }
   }
 `;
+
+const GamePlay = () => {
+  const { state, dispatch } = useDiceContext();
+  const { error, isRulesDialogOpen } = state;
+
+  return (
+    <MainContainer>
+      <p className="error">{error}</p>
+      <div className="top_section">
+        <Score />
+        <NumberSelector />
+      </div>
+      <RoleDice />
+      <div className="btns">
+        <Button onClick={() => dispatch({ type: "resetScore" })}>
+          Reset Score
+        </Button>
+        <Button onClick={() => dispatch({ type: "toggleRulesDialog" })}>
+          Show Rules
+        </Button>
+      </div>
+      {/* Rules Dialog */}
+      {isRulesDialogOpen && <Dialog />}
+    </MainContainer>
+  );
+};
+
+export default GamePlay;

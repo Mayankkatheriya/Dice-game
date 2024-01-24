@@ -7,46 +7,22 @@ const DiceProvider = ({ children }) => {
   const reducer = (state, action) => {
     switch (action.type) {
       case "Dice-Selected":
-        return {
-          ...state,
-          selectedDice: action.payload,
-        };
-
+        return { ...state, selectedDice: action.payload };
       case "Dice-Role":
-        return {
-          ...state,
-          currentDice: action.payload,
-        };
-
+        return { ...state, currentDice: action.payload };
       case "updateScore":
-        return {
-          ...state,
-          totalScore: state.totalScore + action.payload,
-        };
-
+        return { ...state, totalScore: state.totalScore + action.payload };
       case "setError":
-        return {
-          ...state,
-          error: action.payload,
-        };
-
+        return { ...state, error: action.payload };
       case "resetScore":
-        return {
-          ...state,
-          totalScore: 0,
-        };
-
+        return { ...state, totalScore: 0 };
       case "toggleRulesDialog":
-        return {
-          ...state,
-          isRulesDialogOpen: !state.isRulesDialogOpen,
-        };
-
+        return { ...state, isRulesDialogOpen: !state.isRulesDialogOpen };
       default:
         return state;
     }
   };
-  //initial state
+
   const initState = {
     selectedDice: "",
     currentDice: 1,
