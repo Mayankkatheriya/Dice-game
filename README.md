@@ -1,4 +1,4 @@
-![image](https://github.com/Mayankkatheriya/Dice-game/assets/128832286/22d98ec3-90d2-433e-8a42-33c940d21fbc)# React Dice Game
+# React Dice Game
 
 Welcome to the React Dice Game! This simple web application allows users to play a dice game where they can select a number and roll the dice to earn points based on their guess.
 
